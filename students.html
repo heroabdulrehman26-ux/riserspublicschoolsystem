@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Students - Risers Public School</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo-container">
+    <img src="image/logo.jpeg" alt="Risers School Logo">
+    <span class="school-name">🎓 Risers Public School System</span>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="admission.html">Admissions</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><a href="students.html">Students</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="signup.html">Signup</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+
+  <section class="students-section">
+    <h2>Select a Class</h2>
+    <div class="class-select">
+      <select onchange="showStudents(this.value)">
+        <option value="">-- Select Class --</option>
+        <option value="pre9">Pre-9</option>
+        <option value="1">Class 1</option>
+        <option value="2">Class 2</option>
+        <option value="3">Class 3</option>
+        <option value="4">Class 4</option>
+        <option value="5">Class 5</option>
+        <option value="6">Class 6</option>
+        <option value="7">Class 7</option>
+        <option value="8">Class 8</option>
+        <option value="9">Class 9</option>
+        <option value="10">Class 10</option>
+      </select>
+    </div>
+
+    <div id="studentsDisplay"></div>
+  </section>
+
+  <footer>
+    &copy; 2025 Risers Public School System. All rights reserved.
+  </footer>
+
+  <script>
+    const incharges = {
+      pre9: { name: "Sir Hero Abdulrehman Abid", img: "image/siehero.jpg", cr: "Ali Raza" },
+      1: { name: "Sir Hero Abdulrehman Abid", img:"image/siehero.jpg", cr: "Ayesha Khan" },
+      2: { name: "Sir Hero Abdulrehman Abid", img:"image/siehero.jpg", cr: "Hamza Ahmed" },
+      3: { name: "Sir Hero Abdulrehman Abid", img:"image/siehero.jpg", cr: "Sana Malik" },
+      4: { name: "Sir Hero Abdulrehman Abid", img:"image/sirz.jpg", cr: "Usman Tariq" },
+      5: { name: "Sir Abdul-Jabbar", img: "image/sirabduljabbar.jpg", cr: "Iqra Zafar" },
+      6: { name: "Sir Hero Abdulrehman Abid", img: "image/siehero.jpg", cr: "Rehan Akram" },
+      7: { name: "Sir Zeeshan Mughal", img: "image/Sirzeeshan.jpg", cr: "Hassan Rafiq" },
+      8: { name: "Sir Zikr. illahi", img: "image/Sirzikr.jpg", cr: "Sundas Tariq" },
+      9: { name: "Sir Zahid", img: "image/sirz.jpg", cr: "Aliyan Malik" },
+      10: { name: "Sir Abdullah Janjua", img: "image/sirabdullah.jpg", cr: "Hero Abdul-Rehman Abid" }
+    };
+
+    function showStudents(classKey) {
+      const data = incharges[classKey];
+      if (!data) return;
+
+      let students = "";
+      for (let i = 1; i <= 37; i++) {
+        students += `<tr><td>${i}</td><td>Student ${i}</td><td>Class ${classKey}</td><td>Male/Female</td></tr>`;
+      }
+
+      const html = `
+        <div class="incharge">
+          <div class="incharge-info">
+            <img src="${data.img}" alt="Incharge">
+            <div>
+              <h3>Class Incharge: ${data.name}</h3>
+            </div>
+          </div>
+        </div>
+        <div class="cr">
+          <strong>Class Representative (CR):</strong> ${data.cr}
+        </div>
+        <div class="students-list">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Name</th>
+                <th>Class</th>
+                <th>Gender</th>
+              </tr>
+            </thead>
+            <tbody>${students}</tbody>
+          </table>
+        </div>
+      `;
+
+      document.getElementById("studentsDisplay").innerHTML = html;
+        function toggleMenu() {
+    const nav = document.getElementById("nav-menu");
+    nav.classList.toggle("active");
+  }
+    }
+      function toggleMenu() {
+    const nav = document.getElementById("nav-menu");
+    nav.classList.toggle("active");
+  }
+  </script>
+</body>
+</html>
+

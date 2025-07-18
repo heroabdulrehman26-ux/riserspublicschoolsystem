@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Risers Public School System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo-container">
+    <img src="image/logo.jpeg" alt="Risers School Logo">
+    <span class="school-name">🎓 Risers Public School System</span>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="admission.html">Admissions</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><a href="students.html">Students</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="signup.html">Signup</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+  <!-- ===== Principal Section ===== -->
+  <section class="principal-section">
+    <h2>Meet Our Principal</h2>
+    <div class="principal-card">
+      <img src="image/sirabdullah.jpg" alt="Principal">
+      <div class="principal-info">
+        <h3>Sir Abdullah Amin Janjua</h3>
+        <p>Principal, Risers Public School</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Teachers Section ===== -->
+  <section class="teachers-section">
+    <h2>Our Esteemed Teachers</h2>
+    <div class="teachers-grid">
+      <!-- Repeat this block for each teacher -->
+      <div class="teacher-card">
+        <img src="image/sirabdullah.jpg" alt="Teacher 1">
+        <h4>Sir Abdullah Amin Janjua</h4>
+        <p>Chemistry</p>
+      </div>
+      <div class="teacher-card">
+        <img src="image/sirzikr.jpg" alt="Teacher 2">
+        <h4>Sir Zikr. illahi</h4>
+        <p>Computer</p>
+      </div>
+      <div class="teacher-card">
+        <img src="image/sirz.jpg" alt="Teacher 3">
+        <h4>Sir Zahid </h4>
+        <p>Physics</p>
+      </div>
+      <div class="teacher-card">
+        <img src="image/siehero.jpg" alt="Teacher 4">
+        <h4>Sir Abdulrehman</h4>
+        <p>Computer</p>
+      </div>
+      <div class="teacher-card">
+        <img src="image/sirzeeshan.jpg" alt="Teacher 5">
+        <h4>Sir Zeeshan</h4>
+        <p> English</p>
+      </div>
+      <div class="teacher-card">
+        <img src="image/sirabduljabbar.jpg" alt="Teacher 6">
+        <h4>Sir Abdul-Jabbar</h4>
+        <p>Physics</p>
+      </div>
+      <div class="teacher-card">
+        <img src="image/sirimran.jpg" alt="Teacher 7">
+        <h4>Sir Hafiz Imran</h4>
+        <p>Islamiyat</p>
+      </div>
+      <div class="teacher-card">
+        <img src="image/sirzeeshan.jpg" alt="Teacher 8">
+        <h4>Sir Amir</h4>
+        <p>English</p>
+      </div>
+      <div class="teacher-card">
+        <img src="image/sirabdullah.jpg" alt="Teacher 9">
+        <h4>Sir Shoaib</h4>
+        <p>Urdu</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>&copy; 2025 Risers Public School System. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("nav-menu");
+      nav.classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
+
+</body>
+</html>

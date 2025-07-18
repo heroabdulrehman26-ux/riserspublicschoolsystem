@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Risers Public School System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo-container">
+    <img src="logo.jpeg" alt="Risers School Logo">
+    <span class="school-name">🎓 Risers Public School System</span>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="admission.html">Admissions</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><a href="students.html">Students</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="signup.html">Signup</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="admission-section">
+  <h2>Apply for Admission</h2>
+  <form id="admissionForm" onsubmit="sendWhatsApp(); return false;">
+    <input type="text" id="name" placeholder="Student Full Name" required />
+    <input type="text" id="father" placeholder="Father's Name" required />
+    <input type="number" id="age" placeholder="Age" required />
+    <input type="text" id="class" placeholder="Class Applying For" required />
+    <input type="text" id="address" placeholder="Home Address" required />
+    <input type="tel" id="phone" placeholder="Parent Mobile Number" required />
+    <button type="submit">📩 Submit Form</button>
+  </form>
+</section>
+
+<footer>
+  <p>&copy; 2025 Risers Public School System. All rights reserved.</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById("nav-menu");
+    nav.classList.toggle("active");
+  }
+
+  function sendWhatsApp() {
+    const name = document.getElementById("name").value;
+    const father = document.getElementById("father").value;
+    const age = document.getElementById("age").value;
+    const classApply = document.getElementById("class").value;
+    const address = document.getElementById("address").value;
+    const phone = document.getElementById("phone").value;
+
+    const message = `*🎓 New Admission Form*\n\n` +
+                    `👦 Name: ${name}\n` +
+                    `👨 Father: ${father}\n` +
+                    `🎂 Age: ${age}\n` +
+                    `🏫 Class: ${classApply}\n` +
+                    `🏠 Address: ${address}\n` +
+                    `📱 Parent Contact: ${phone}`;
+
+    const url = `https://wa.me/923006483351?text=${encodeURIComponent(message)}`;
+    window.open(url, "_blank");
+  }
+</script>
+</body>
+</html>

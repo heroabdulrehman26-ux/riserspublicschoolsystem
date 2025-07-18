@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jobs - Risers Public School</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo-container">
+    <img src="logo.jpeg" alt="Risers School Logo">
+    <span class="school-name">🎓 Risers Public School System</span>
+  </div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="admission.html">Admissions</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><a href="students.html">Students</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="signup.html">Signup</a></li>
+    </ul>
+  </nav>
+</header>
+
+
+
+  <section class="jobs-form-section">
+  <h2><p align="center">Apply for Teaching Job</p></h2>
+  <form class="job-form" onsubmit="sendJobForm(event)">
+    <label for="name">Your Full Name:</label>
+    <input type="text" id="name" required placeholder="Enter your name">
+
+    <label for="phone">Phone Number:</label>
+    <input type="tel" id="phone" required placeholder="03xx-xxxxxxx">
+
+    <label for="class">Select Class You Want to Teach:</label>
+    <select id="class" required>
+      <option value="">-- Choose Class --</option>
+      <option>Pre-Ninth</option>
+      <option>Class 1</option>
+      <option>Class 2</option>
+      <option>Class 3</option>
+      <option>Class 4</option>
+      <option>Class 5</option>
+      <option>Class 6</option>
+      <option>Class 7</option>
+      <option>Class 8</option>
+      <option>Class 9</option>
+      <option>Class 10</option>
+    </select>
+
+    <label for="subject">Subject You Want to Teach:</label>
+    <select id="subject" required>
+      <option value="">-- Choose Subject --</option>
+      <option>English</option>
+      <option>Urdu</option>
+      <option>Mathematics</option>
+      <option>Science</option>
+      <option>Islamiyat</option>
+      <option>Computer</option>
+      <option>Biology</option>
+      <option>Chemistry</option>
+      <option>Physics</option>
+      <option>General Knowledge</option>
+    </select>
+
+    <label for="cv">Upload CV (Optional):</label>
+    <input type="file" id="cv" accept=".pdf,.doc,.docx">
+
+    <button type="submit">Apply Now</button>
+  </form>
+</section>
+
+<script>
+  function sendJobForm(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    const className = document.getElementById("class").value;
+    const subject = document.getElementById("subject").value;
+
+    const message = `*New Job Application*\n\n👤 Name: ${name}\n📞 Phone: ${phone}\n🏫 Class to Teach: ${className}\n📚 Subject: ${subject}`;
+
+    // WhatsApp Number Format: 923006483351 (remove 0 and add 92)
+    const whatsappURL = `https://wa.me/923006483351?text=${encodeURIComponent(message)}`;
+
+    window.open(whatsappURL, "_blank");
+  }
+    function toggleMenu() {
+    const nav = document.getElementById("nav-menu");
+    nav.classList.toggle("active");
+  }
+</script>
+</body>
+</html>

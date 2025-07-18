@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Risers Public School System</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="navbar">
+  <div class="logo">🎓 Risers School</div>
+
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <nav id="nav-menu">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="admission.html">Admissions</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="jobs.html">Jobs</a></li>
+      <li><a href="students.html">Students</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="signup.html">Signup</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <section class="results-section">
+    <h2>📊 Check Student Results</h2>
+
+    <div class="filters">
+      <select id="classSelect">
+        <option value="">Select Class</option>
+        <option value="Class 1">Class 1</option>
+        <option value="Class 2">Class 2</option>
+        <option value="Class 3">Class 3</option>
+        <option value="Class 4">Class 4</option>
+        <option value="Class 5">Class 5</option>
+        <option value="Class 6">Class 6</option>
+        <option value="Class 6">Class 7</option>
+        <option value="Class 6">Class 8</option>
+        <option value="Class 6">Class 9</option>
+        <option value="Class 6">Class pre-9</option>
+        <option value="Class 6">Class 10</option>  
+    
+    
+    
+    </select>
+
+      <select id="yearSelect">
+        <option value="">Select Year</option>
+        <option value="2009">2009</option>
+        <option value="2010">2010</option>
+        <option value="2010">2011</option>
+        <option value="2010">2012</option>
+        <option value="2010">2013</option>
+        <option value="2010">2014</option>
+        <option value="2010">2015</option>
+        <option value="2010">2016</option>
+        <option value="2010">2017</option>
+        <option value="2010">2018</option>
+        <option value="2010">2019</option>
+        <option value="2010">2020</option>
+        <option value="2010">2021</option>
+        <option value="2010">2022</option>
+        <option value="2010">2023</option>
+        <option value="2010">2024</option>
+        <option value="2010">2025</option>
+      </select>
+    </div>
+
+    <div id="resultsContainer"></div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Risers Public School System. All rights reserved.</p>
+  </footer>
+
+  <script>
+    const resultsData = {
+      "Class 1,2,3,4,5,6,7,8,9": {
+        "2009": [
+          { name: "Ahmed Khan", marks: 480, remarks: "Excellent", photo: "images/students/s1.jpg" },
+          { name: "Ali Raza", marks: 460, remarks: "Very Good", photo: "images/students/s2.jpg" },
+          { name: "Hina Sheikh", marks: 455, remarks: "Good", photo: "images/students/s3.jpg" },
+          { name: "Fiza Ahmed", marks: 440, remarks: "Good", photo: "images/students/s4.jpg" },
+          { name: "Hamza Ali", marks: 420, remarks: "Average", photo: "images/students/s5.jpg" },
+          { name: "Ayesha Noor", marks: 410, remarks: "Average", photo: "images/students/s6.jpg" },
+          { name: "Rizwan Butt", marks: 390, remarks: "Pass", photo: "images/students/s7.jpg" },
+          { name: "Maria Malik", marks: 385, remarks: "Pass", photo: "images/students/s8.jpg" },
+          { name: "Umar Farooq", marks: 375, remarks: "Pass", photo: "images/students/s9.jpg" },
+          { name: "Sana Tariq", marks: 360, remarks: "Needs Improvement", photo: "images/students/s10.jpg" }
+        ],
+        "2010": [
+          { name: "Bilal Khan", marks: 490, remarks: "Outstanding", photo: "images/students/s1.jpg" },
+          { name: "Zainab Fatima", marks: 470, remarks: "Excellent", photo: "images/students/s2.jpg" },
+          { name: "Irfan Ahmed", marks: 460, remarks: "Very Good", photo: "images/students/s3.jpg" },
+          { name: "Areeba Iqbal", marks: 450, remarks: "Good", photo: "images/students/s4.jpg" },
+          { name: "Noman Qureshi", marks: 430, remarks: "Good", photo: "images/students/s5.jpg" },
+          { name: "Mehwish Ali", marks: 420, remarks: "Average", photo: "images/students/s6.jpg" },
+          { name: "Zeeshan Mughal", marks: 400, remarks: "Pass", photo: "images/students/s7.jpg" },
+          { name: "Samina Akhtar", marks: 395, remarks: "Pass", photo: "images/students/s8.jpg" },
+          { name: "Junaid Akram", marks: 380, remarks: "Needs Improvement", photo: "images/students/s9.jpg" },
+          { name: "Mahnoor Rehman", marks: 370, remarks: "Needs Improvement", photo: "images/students/s10.jpg" }
+        ]
+      }
+    };
+
+    function showResults() {
+      const selectedClass = document.getElementById("classSelect").value;
+      const selectedYear = document.getElementById("yearSelect").value;
+      const container = document.getElementById("resultsContainer");
+      container.innerHTML = "";
+
+      if (resultsData[selectedClass] && resultsData[selectedClass][selectedYear]) {
+        resultsData[selectedClass][selectedYear].forEach(student => {
+          container.innerHTML += `
+            <div class="result-card">
+              <img src="${student.photo}" alt="${student.name}">
+              <div class="result-info">
+                <h3>${student.name}</h3>
+                <p>Marks: ${student.marks} / 500</p>
+                <p>Remarks: ${student.remarks}</p>
+              </div>
+              <button class="print-btn" onclick="window.print()">Print</button>
+            </div>
+          `;
+        });
+      } else {
+        container.innerHTML = '<p class="no-results">No results available for selected class and year.</p>';
+      }
+    }
+
+    document.getElementById("classSelect").addEventListener("change", showResults);
+    document.getElementById("yearSelect").addEventListener("change", showResults);
+
+
+    function toggleMenu() {
+      document.getElementById("nav-menu").classList.toggle("active");
+    }
+  </script>
+</body>
+</html>
